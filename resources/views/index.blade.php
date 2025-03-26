@@ -3,6 +3,17 @@
 @section('title', 'Home')
 
 @section('content')
+    <!-- Tambah pesan token di sini -->
+    @if (session('token'))
+        <div class="container mx-auto mt-4">
+            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg shadow-md">
+                <p class="font-semibold">Login berhasil!</p>
+                <p>Simpan token ini untuk chat: <strong>{{ session('token') }}</strong></p>
+                <a href="/chat" class="text-blue-600 hover:underline">Buka Forum Chat</a>
+            </div>
+        </div>
+    @endif
+
     <div class="mb-6">
         <h1 class="text-4xl font-bold text-center mb-6 text-gray-800">Discover Your Next Meal</h1>
         <form id="ingredientForm" action="{{ route('index') }}" method="GET" class="flex gap-4 items-center justify-center">

@@ -6,16 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Favorite extends Model
 {
-    protected $table = 'favorites';
-    protected $primaryKey = 'recipe_id';
-    public $incrementing = false;
-    protected $fillable = [
-        'recipe_id',
-        'title',
-        'image',
-        'ready_in_minutes',
-        'servings',
-        'instructions',
-        'ingredients'
-    ];
+    protected $fillable = ['user_id', 'recipe_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

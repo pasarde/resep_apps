@@ -5,16 +5,18 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                    @if (session('token'))
+                        <div class="alert alert-success">
+                            Login berhasil! Simpan token ini untuk chat: <strong>{{ session('token') }}</strong>
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    Selamat datang, {{ Auth::user()->name }}!
+                    <br>
+                    <a href="/chat">Buka Forum Chat</a>
                 </div>
             </div>
         </div>

@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
 {
-    protected $table = 'likes';
-    protected $primaryKey = 'recipe_id';
-    public $incrementing = false;
-    protected $fillable = ['recipe_id', 'title', 'likes'];
+    protected $fillable = ['user_id', 'recipe_id', 'title'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
